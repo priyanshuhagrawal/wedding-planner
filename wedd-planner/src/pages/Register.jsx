@@ -50,7 +50,7 @@ const navigate = useNavigate();
   }
 
   try {
-    const response =
+    
       await axios.post(
   "https://wedding-planner-3cid.onrender.com/api/auth/register",
   {

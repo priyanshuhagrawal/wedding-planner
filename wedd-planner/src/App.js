@@ -17,7 +17,7 @@ import ManageCatering from "./pages/ManageCatering";
   import ManagePhotographers from "./pages/ManagePhotographers";
   import ManageDecorations from "./pages/ManageDecorations";
   //import ManageMandaps from "./pages/ManageMandaps";
-import AdminRequestDetails from "./pages/AdminRequestDetails";
+//import AdminRequestDetails from "./pages/AdminRequestDetails";
 function App() {
   return (
     <BrowserRouter>

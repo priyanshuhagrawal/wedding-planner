@@ -12,7 +12,7 @@ console.log("Route ID:", id);
 
   useEffect(() => {
     fetchRequest();
-  }, []);
+  }, [id]);
 
   const fetchRequest = async () => {
     try {
