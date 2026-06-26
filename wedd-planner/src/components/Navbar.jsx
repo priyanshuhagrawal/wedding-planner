@@ -3,7 +3,9 @@ import { useState } from "react";
 
 
   const handleLogout = () => {
+  localStorage.removeItem("token");
   localStorage.removeItem("role");
+  localStorage.removeItem("user");
 
   window.location.href = "/login";
 };
@@ -40,15 +42,15 @@ function Navbar() {
 ></div >
        <div className="ms-auto d-flex align-items-center">
         <Link
-          to="/"
-          style={{
-  color: "white",
-  marginRight: "20px",
-  fontWeight: "500",
-}}
-        >
-          Home
-        </Link>
+  to="/home"
+  style={{
+    color: "white",
+    marginRight: "20px",
+    fontWeight: "500",
+  }}
+>
+  Home
+</Link>
 
         <Link
           to="/gallery"

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
+import { Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WeddingRequestDetails from "./pages/WeddingRequestDetails";
@@ -18,13 +18,25 @@ import ManageCatering from "./pages/ManageCatering";
   import ManageDecorations from "./pages/ManageDecorations";
   //import ManageMandaps from "./pages/ManageMandaps";
 //import AdminRequestDetails from "./pages/AdminRequestDetails";
+
 function App() {
+  const token = localStorage.getItem("token");
+  //const role = localStorage.getItem("role");
   return (
     <BrowserRouter>
-      <Navbar />
+      {token && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+  path="/home"
+  element={
+    token ? (
+      <Home />
+    ) : (
+      <Navigate to="/login" replace />
+    )
+  }
+/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/planner" element={<WeddingPlanner />} />
@@ -35,13 +47,14 @@ function App() {
         <Route path="/admin/catering" element={<ManageCatering />} />
         <Route path="/admin/photographers" element={<ManagePhotographers />} />
         <Route path="/admin/decorations" element={<ManageDecorations />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
         {/* <Route path="/admin/request/:id" element={<AdminRequestDetails />}
 /> */}
         {/* <Route path="/admin/mandaps" element={<ManageMandaps />} /> */}
       </Routes>
       
 
-      <Footer />
+      {token && <Footer />} 
     </BrowserRouter>
   );
 }

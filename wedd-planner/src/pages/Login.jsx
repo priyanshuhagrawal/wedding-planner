@@ -60,7 +60,7 @@ const handleLogin = async () => {
     ) {
       navigate("/admin");
     } else {
-      navigate("/");
+      navigate("/home");
     }
 
     window.location.reload();
